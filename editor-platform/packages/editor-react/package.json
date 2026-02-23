@@ -1,0 +1,17 @@
+{
+  "name": "@editor-platform/editor-react",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@milkdown/core": "^7.7.0",
+    "@milkdown/react": "^7.7.0",
+    "@milkdown/preset-commonmark": "^7.7.0",
+    "dompurify": "^3.0.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

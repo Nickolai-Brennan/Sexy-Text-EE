@@ -1,0 +1,17 @@
+.editor-content {
+  font-family: var(--ed-font-family);
+  font-size: var(--ed-font-size);
+  line-height: var(--ed-line-height);
+  color: var(--ed-text-color);
+  max-width: var(--ed-max-width);
+}
+
+.editor-content a {
+  color: var(--ed-link-color);
+}
+
+.editor-content pre {
+  background: var(--ed-code-bg);
+  border-radius: var(--ed-radius);
+  padding: var(--ed-spacing);
+}

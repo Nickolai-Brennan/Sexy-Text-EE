@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: editor
+    ports:
+      - "5432:5432"
+    volumes:
+      - editor_pgdata:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  editor-api:
+    build:
+      context: ../services/editor-api
+    environment:
+      DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/editor
+      API_KEY: dev-key
+      ALLOWED_IFRAME_HOSTS: youtube.com,www.youtube.com,youtu.be,player.vimeo.com
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+volumes:
+  editor_pgdata:
