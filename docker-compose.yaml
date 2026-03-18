@@ -1,0 +1,21 @@
+version: "3.9"
+
+services: 
+postgres:
+  image: postgres:15
+  environment:
+    POSTGRES_PASSWORD: postgres
+    POSTGRES_USER: postgres
+    POSTGRES_DB: db_editor
+ports:
+  - "5432:5432"
+
+api:
+  build: ./services/editor-api
+  environment:
+    DATABASE_URL: postgresql+asyncpg://postgres:postgres@postgres:5432/editor
+    API_KEY: dev-key
+  ports:
+    - "8000:8000"
+  depends_on:
+    - postgres
